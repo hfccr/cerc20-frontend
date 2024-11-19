@@ -34,7 +34,8 @@ const NAVIGATION: Navigation = [
 ];
 
 const BRANDING = {
-  title: "My Toolpad Core Next.js App",
+  title: "CERC20",
+  logo: <> </>,
 };
 
 const queryClient = new QueryClient();
