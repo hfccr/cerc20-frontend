@@ -1,11 +1,20 @@
+"use client";
 import * as React from "react";
 import { AppProvider } from "@toolpad/core/nextjs";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v14-appRouter";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import type { Navigation } from "@toolpad/core/AppProvider";
-
 import theme from "../theme";
+import "@rainbow-me/rainbowkit/styles.css";
+import {
+  getDefaultConfig,
+  RainbowKitProvider,
+  darkTheme,
+} from "@rainbow-me/rainbowkit";
+import { WagmiProvider } from "wagmi";
+import { rivest } from "@/util/rivest";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 const NAVIGATION: Navigation = [
   {
@@ -28,19 +37,38 @@ const BRANDING = {
   title: "My Toolpad Core Next.js App",
 };
 
+const queryClient = new QueryClient();
+
+const config = getDefaultConfig({
+  appName: "CERC",
+  projectId: process.env.NEXT_PUBLIC_PROJECT_ID!,
+  chains: [rivest],
+  ssr: true, // If your dApp uses server side rendering (SSR)
+});
+
 export default function RootLayout(props: { children: React.ReactNode }) {
   return (
     <html lang="en" data-toolpad-color-scheme="light" suppressHydrationWarning>
       <body>
-        <AppRouterCacheProvider options={{ enableCssLayer: true }}>
-          <AppProvider
-            navigation={NAVIGATION}
-            branding={BRANDING}
-            theme={theme}
-          >
-            {props.children}
-          </AppProvider>
-        </AppRouterCacheProvider>
+        <WagmiProvider config={config}>
+          <QueryClientProvider client={queryClient}>
+            <RainbowKitProvider
+              theme={darkTheme({
+                fontStack: "system",
+              })}
+            >
+              <AppRouterCacheProvider options={{ enableCssLayer: true }}>
+                <AppProvider
+                  navigation={NAVIGATION}
+                  branding={BRANDING}
+                  theme={theme}
+                >
+                  {props.children}
+                </AppProvider>
+              </AppRouterCacheProvider>
+            </RainbowKitProvider>
+          </QueryClientProvider>
+        </WagmiProvider>
       </body>
     </html>
   );
