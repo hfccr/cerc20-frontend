@@ -28,7 +28,7 @@ const NAVIGATION: Navigation = [
   },
   {
     segment: "token",
-    title: "Confidential Token",
+    title: "Token",
     icon: <CircleIcon />,
   },
 ];
