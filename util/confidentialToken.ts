@@ -532,6 +532,32 @@ const confidentailToken = {
       type: "function",
     },
     {
+      inputs: [
+        {
+          internalType: "uint64",
+          name: "amount",
+          type: "uint64",
+        },
+      ],
+      name: "openBurn",
+      outputs: [],
+      stateMutability: "nonpayable",
+      type: "function",
+    },
+    {
+      inputs: [
+        {
+          internalType: "uint64",
+          name: "amount",
+          type: "uint64",
+        },
+      ],
+      name: "openMint",
+      outputs: [],
+      stateMutability: "nonpayable",
+      type: "function",
+    },
+    {
       inputs: [],
       name: "owner",
       outputs: [

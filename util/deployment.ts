@@ -3,7 +3,7 @@ type Deployment = {
 };
 
 const deployment: Deployment = {
-  confidentialToken: "0xae84335fbDA646737Cd316DCB4FbFda5167AC723",
+  confidentialToken: "0xE41bA6657c8a2cBE7e54425F52Be084989EC6916",
 };
 
 export default deployment;
