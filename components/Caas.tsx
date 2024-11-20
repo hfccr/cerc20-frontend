@@ -1,16 +1,16 @@
-import { Stack } from "@mui/material";
+import { Grid2 } from "@mui/material";
 import Erc20 from "./Erc20";
 import Wrapper from "./Wrapper";
 
 export default function Caas() {
   return (
-    <Stack
-      direction={{ sm: "column", md: "row" }}
-      justifyContent="space-between"
-      spacing={4}
-    >
-      <Erc20 />
-      <Wrapper />
-    </Stack>
+    <Grid2 spacing={4} container>
+      <Grid2 size={{ sm: 12, md: 6 }}>
+        <Erc20 />
+      </Grid2>
+      <Grid2 size={{ sm: 12, md: 6 }}>
+        <Wrapper />
+      </Grid2>
+    </Grid2>
   );
 }
