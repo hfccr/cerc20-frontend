@@ -10,6 +10,7 @@ import Snackbar from "@mui/material/Snackbar";
 import { createInstance, initFhevm } from "fhevmjs/web";
 import { useEthersSigner } from "@/hooks/useEthersSigner";
 import { Contract } from "ethers";
+import RefreshIcon from "@mui/icons-material/Refresh";
 
 enum Activity {
   FHE_INSTANCE = "Creating FHE Instance",
@@ -132,16 +133,16 @@ export default function DecryptBalance() {
             disabled={!isConnected || wrongChain}
             onClick={handleDecryption}
             color={isSuccess ? "success" : isError ? "error" : "primary"}
+            startIcon={isSuccess ? <RefreshIcon /> : null}
           >
             {isSuccess
-              ? `Decrypt Again`
+              ? `Balance: ${userBalance}`
               : isError
                 ? "Try Again"
                 : `Decrypt Balance`}
           </LoadingButton>
         </Box>
       </Tooltip>
-      <Typography>User Balance: {userBalance}</Typography>
       <Snackbar open={isFetching && activity === ""} autoHideDuration={2000}>
         <Alert severity="info">Waiting for confirmation</Alert>
       </Snackbar>
