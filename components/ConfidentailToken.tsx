@@ -139,7 +139,10 @@ export default function ConfidentailToken() {
               </Typography>
             </CardContent>
             <CardActions>
-              <DecryptBalance />
+              <DecryptBalance
+                address={deployment.confidentialToken}
+                abi={confidentailToken.abi}
+              />
             </CardActions>
           </Card>
         </Stack>

@@ -3,8 +3,6 @@ import { useState } from "react";
 import { rivest } from "@/util/rivest";
 import { Alert, Box, Tooltip, Typography } from "@mui/material";
 import { useAccount, useChainId } from "wagmi";
-import deployment from "@/util/deployment";
-import confidentailToken from "@/util/confidentialToken";
 import { LoadingButton } from "@mui/lab";
 import Snackbar from "@mui/material/Snackbar";
 import { createInstance, initFhevm } from "fhevmjs/web";
@@ -18,17 +16,18 @@ enum Activity {
   DECRYPT = "Decrypting",
 }
 
-export default function DecryptBalance() {
+interface DecryptBalanceProps {
+  address: `0x${string}`;
+  abi: any;
+}
+
+export default function DecryptBalance({ address, abi }: DecryptBalanceProps) {
   const { isConnected, chain } = useAccount();
   const [successDismissed, setSuccessDismissed] = useState(false);
   const [errorDismissed, setErrorDismissed] = useState(false);
   const [userBalance, setUserBalance] = useState("");
   const signer = useEthersSigner();
-  const contract = new Contract(
-    deployment.confidentialToken,
-    confidentailToken.abi,
-    signer
-  );
+  const contract = new Contract(address, abi, signer);
   const [status, setStatus] = useState({
     isFetching: false,
     isSuccess: false,
@@ -69,10 +68,7 @@ export default function DecryptBalance() {
       });
       const { publicKey: genPublicKey, privateKey: genPrivateKey } =
         fhevmInstance.generateKeypair();
-      const eip712 = fhevmInstance.createEIP712(
-        genPublicKey,
-        deployment.confidentialToken
-      );
+      const eip712 = fhevmInstance.createEIP712(genPublicKey, address);
       const signature = await signer.signTypedData(
         eip712.domain,
         { Reencrypt: eip712.types.Reencrypt },
@@ -101,7 +97,7 @@ export default function DecryptBalance() {
           genPrivateKey,
           genPublicKey,
           signature.replace("0x", ""),
-          deployment.confidentialToken,
+          address,
           await signer.getAddress()
         );
         setUserBalance(balanceResult.toString());
