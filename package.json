@@ -11,6 +11,7 @@
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
     "@mui/icons-material": "^6",
+    "@mui/lab": "^6.0.0-beta.15",
     "@mui/material": "^6",
     "@mui/material-nextjs": "^6",
     "@rainbow-me/rainbowkit": "^2.2.0",
