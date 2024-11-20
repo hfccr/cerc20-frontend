@@ -4,12 +4,20 @@ import { rivest } from "@/util/rivest";
 import { Alert, Box, Tooltip } from "@mui/material";
 import { useAccount, useChainId, useWaitForTransactionReceipt } from "wagmi";
 import { useWriteContract } from "wagmi";
-import deployment from "@/util/deployment";
-import confidentailToken from "@/util/confidentialToken";
 import { LoadingButton } from "@mui/lab";
 import Snackbar from "@mui/material/Snackbar";
 
-export default function MintButton() {
+interface MintButtonProps {
+  address: `0x${string}`;
+  abi: any;
+  mintFunction: string;
+}
+
+export default function MintButton({
+  address,
+  abi,
+  mintFunction,
+}: MintButtonProps) {
   const { isConnected, chain } = useAccount();
   const [successDismissed, setSuccessDismissed] = useState(false);
   const [errorDismissed, setErrorDismissed] = useState(false);
@@ -33,9 +41,9 @@ export default function MintButton() {
     setSuccessDismissed(false);
     setErrorDismissed(false);
     writeContract({
-      abi: confidentailToken.abi,
-      address: deployment.confidentialToken,
-      functionName: "openMint",
+      abi: abi,
+      address: address,
+      functionName: mintFunction,
       args: [10],
     });
   };

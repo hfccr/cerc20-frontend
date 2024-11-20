@@ -9,7 +9,17 @@ import confidentailToken from "@/util/confidentialToken";
 import { LoadingButton } from "@mui/lab";
 import Snackbar from "@mui/material/Snackbar";
 
-export default function BurnButton() {
+interface BurnButtonProps {
+  address: `0x${string}`;
+  abi: any;
+  burnFunction: string;
+}
+
+export default function BurnButton({
+  address,
+  abi,
+  burnFunction,
+}: BurnButtonProps) {
   const { isConnected, chain } = useAccount();
   const [successDismissed, setSuccessDismissed] = useState(false);
   const [errorDismissed, setErrorDismissed] = useState(false);
@@ -33,9 +43,9 @@ export default function BurnButton() {
     setSuccessDismissed(false);
     setErrorDismissed(false);
     writeContract({
-      abi: confidentailToken.abi,
-      address: deployment.confidentialToken,
-      functionName: "openBurn",
+      abi: abi,
+      address: address,
+      functionName: burnFunction,
       args: [10],
     });
   };

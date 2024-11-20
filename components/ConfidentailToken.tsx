@@ -5,7 +5,6 @@ import { rivest } from "@/util/rivest";
 import {
   Box,
   Card,
-  CardActionArea,
   CardActions,
   CardContent,
   CardHeader,
@@ -94,7 +93,11 @@ export default function ConfidentailToken() {
               </Typography>
             </CardContent>
             <CardActions>
-              <MintButton />
+              <MintButton
+                address={deployment.confidentialToken}
+                abi={confidentailToken.abi}
+                mintFunction="openMint"
+              />
             </CardActions>
           </Card>
           <Card variant="outlined" sx={{ pb: 2 }}>
@@ -111,7 +114,11 @@ export default function ConfidentailToken() {
               </Typography>
             </CardContent>
             <CardActions>
-              <BurnButton />
+              <BurnButton
+                address={deployment.confidentialToken}
+                abi={confidentailToken.abi}
+                burnFunction="openBurn"
+              />
             </CardActions>
           </Card>
           <Card variant="outlined" sx={{ pb: 2, flexGrow: 1 }}>
