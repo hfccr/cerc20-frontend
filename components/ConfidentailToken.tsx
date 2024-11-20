@@ -78,7 +78,11 @@ export default function ConfidentailToken() {
             </Stack>
           </CardContent>
         </Paper>
-        <Stack direction="row" spacing={2} justifyContent="center">
+        <Stack
+          direction={{ lg: "row", md: "column" }}
+          spacing={2}
+          justifyContent="center"
+        >
           <Card variant="outlined" sx={{ pb: 2 }}>
             <CardHeader
               title={<Typography variant="h4">Mint</Typography>}
