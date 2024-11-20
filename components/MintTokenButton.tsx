@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import { rivest } from "@/util/rivest";
-import { Box, Tooltip } from "@mui/material";
+import { Alert, Box, Tooltip } from "@mui/material";
 import { useAccount, useChainId, useWaitForTransactionReceipt } from "wagmi";
 import { useWriteContract } from "wagmi";
 import deployment from "@/util/deployment";
@@ -57,28 +57,29 @@ export default function MintTokenButton() {
           </LoadingButton>
         </Box>
       </Tooltip>
-      <Snackbar
-        open={isPending}
-        autoHideDuration={2000}
-        message="Waiting for confirmation"
-      />
+      <Snackbar open={isPending} autoHideDuration={2000}>
+        <Alert severity="info">Waiting for confirmation</Alert>
+      </Snackbar>
       <Snackbar
         open={isSuccess && !isError && !isConfirmed}
         autoHideDuration={2000}
-        message="Minting 10 Tokens"
-      />
+      >
+        <Alert severity="info">Waiting for transaction</Alert>
+      </Snackbar>
       <Snackbar
         open={isError && !errorDismissed}
         autoHideDuration={2000}
-        message="Failed to mint tokens"
         onClose={() => setErrorDismissed(true)}
-      />
+      >
+        <Alert severity="error">Failed to mint tokens</Alert>
+      </Snackbar>
       <Snackbar
         open={isConfirmed && !successDismissed}
         autoHideDuration={2000}
-        message="Tokens Minted"
         onClose={() => setSuccessDismissed(true)}
-      />
+      >
+        <Alert severity="success">Tokens minted</Alert>
+      </Snackbar>
     </>
   );
 }
