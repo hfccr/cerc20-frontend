@@ -10,6 +10,8 @@ import LockIcon from "@mui/icons-material/Lock";
 import { Addreth } from "addreth";
 import deployment from "@/util/deployment";
 import { rivest } from "@/util/rivest";
+import DecryptBalance from "./DecryptBalance";
+import wrapper from "@/util/wrapper";
 
 export default function Wrapper() {
   const theme = useTheme();
@@ -36,7 +38,9 @@ export default function Wrapper() {
           </Typography>
         }
       />
-      <CardContent></CardContent>
+      <CardContent>
+        <DecryptBalance address={deployment.wrapper} abi={wrapper.abi} />
+      </CardContent>
     </Card>
   );
 }
