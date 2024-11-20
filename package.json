@@ -16,6 +16,7 @@
     "@rainbow-me/rainbowkit": "^2.2.0",
     "@tanstack/react-query": "^5.60.6",
     "@toolpad/core": "0.9.0",
+    "addreth": "^3.0.1",
     "next": "^14",
     "react": "^18",
     "react-dom": "^18",
