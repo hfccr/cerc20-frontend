@@ -15,6 +15,7 @@ import {
 import { WagmiProvider } from "wagmi";
 import { rivest } from "@/util/rivest";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import "./global.css";
 
 const NAVIGATION: Navigation = [
   {
