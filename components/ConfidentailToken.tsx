@@ -12,7 +12,8 @@ import {
 } from "@mui/material";
 import { Addreth } from "addreth";
 import { useReadContract } from "wagmi";
-import MintTokenButton from "./MintTokenButton";
+import MintButton from "./MintButton";
+import BurnButton from "./BurnButton";
 
 export default function ConfidentailToken() {
   const { data: name, isFetched: isNameFetched } = useReadContract({
@@ -61,12 +62,13 @@ export default function ConfidentailToken() {
         <Paper variant="outlined">
           <CardContent>
             <Typography variant="h5">Mint Tokens</Typography>
-            <MintTokenButton />
+            <MintButton />
           </CardContent>
         </Paper>
         <Paper variant="outlined">
           <CardContent>
             <Typography variant="h5">Burn Tokens</Typography>
+            <BurnButton />
           </CardContent>
         </Paper>
         <Paper variant="outlined">

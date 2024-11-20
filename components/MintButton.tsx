@@ -9,7 +9,7 @@ import confidentailToken from "@/util/confidentialToken";
 import { LoadingButton } from "@mui/lab";
 import Snackbar from "@mui/material/Snackbar";
 
-export default function MintTokenButton() {
+export default function MintButton() {
   const { isConnected, chain } = useAccount();
   const [successDismissed, setSuccessDismissed] = useState(false);
   const [errorDismissed, setErrorDismissed] = useState(false);
@@ -27,6 +27,7 @@ export default function MintTokenButton() {
     writeContract,
     isError,
     isSuccess,
+    error,
   } = useWriteContract();
   const handleMint = () => {
     setSuccessDismissed(false);
@@ -53,7 +54,11 @@ export default function MintTokenButton() {
             onClick={handleMint}
             color={isConfirmed ? "success" : isError ? "error" : "primary"}
           >
-            {isConfirmed ? "Mint Again" : isError ? "Try Again" : "Mint Tokens"}
+            {isConfirmed
+              ? `Mint Again`
+              : isError
+                ? "Try Again"
+                : `Mint 10 Tokens`}
           </LoadingButton>
         </Box>
       </Tooltip>
@@ -71,14 +76,14 @@ export default function MintTokenButton() {
         autoHideDuration={2000}
         onClose={() => setErrorDismissed(true)}
       >
-        <Alert severity="error">Failed to mint tokens</Alert>
+        <Alert severity="error">Failed to Mint tokens</Alert>
       </Snackbar>
       <Snackbar
         open={isConfirmed && !successDismissed}
         autoHideDuration={2000}
         onClose={() => setSuccessDismissed(true)}
       >
-        <Alert severity="success">Tokens minted</Alert>
+        <Alert severity="success">Tokens Minted</Alert>
       </Snackbar>
     </>
   );
