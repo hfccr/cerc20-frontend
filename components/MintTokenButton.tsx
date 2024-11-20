@@ -58,6 +58,11 @@ export default function MintTokenButton() {
         </Box>
       </Tooltip>
       <Snackbar
+        open={isPending}
+        autoHideDuration={2000}
+        message="Waiting for confirmation"
+      />
+      <Snackbar
         open={isSuccess && !isError && !isConfirmed}
         autoHideDuration={2000}
         message="Minting 10 Tokens"
