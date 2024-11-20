@@ -7,15 +7,11 @@ import CircleIcon from "@mui/icons-material/Circle";
 import type { Navigation } from "@toolpad/core/AppProvider";
 import theme from "../theme";
 import "@rainbow-me/rainbowkit/styles.css";
-import {
-  getDefaultConfig,
-  RainbowKitProvider,
-  darkTheme,
-} from "@rainbow-me/rainbowkit";
+import { RainbowKitProvider, darkTheme } from "@rainbow-me/rainbowkit";
 import { WagmiProvider } from "wagmi";
-import { rivest } from "@/util/rivest";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import "./global.css";
+import config from "@/util/wagmiConfig";
 
 const NAVIGATION: Navigation = [
   {
@@ -40,13 +36,6 @@ const BRANDING = {
 };
 
 const queryClient = new QueryClient();
-
-const config = getDefaultConfig({
-  appName: "CERC",
-  projectId: process.env.NEXT_PUBLIC_PROJECT_ID!,
-  chains: [rivest],
-  ssr: true, // If your dApp uses server side rendering (SSR)
-});
 
 export default function RootLayout(props: { children: React.ReactNode }) {
   return (
