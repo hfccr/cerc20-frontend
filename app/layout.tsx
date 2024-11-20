@@ -4,6 +4,7 @@ import { AppProvider } from "@toolpad/core/nextjs";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v14-appRouter";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import CircleIcon from "@mui/icons-material/Circle";
+import EnhancedEncryptionIcon from "@mui/icons-material/EnhancedEncryption";
 import type { Navigation } from "@toolpad/core/AppProvider";
 import theme from "../theme";
 import "@rainbow-me/rainbowkit/styles.css";
@@ -27,6 +28,11 @@ const NAVIGATION: Navigation = [
     segment: "token",
     title: "Token",
     icon: <CircleIcon />,
+  },
+  {
+    segment: "caas",
+    title: "CaaS",
+    icon: <EnhancedEncryptionIcon />,
   },
 ];
 
