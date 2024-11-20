@@ -12,6 +12,7 @@ import deployment from "@/util/deployment";
 import { rivest } from "@/util/rivest";
 import DecryptBalance from "./DecryptBalance";
 import wrapper from "@/util/wrapper";
+import WrapButton from "./WrapButton";
 
 export default function Wrapper() {
   const theme = useTheme();
@@ -40,6 +41,7 @@ export default function Wrapper() {
       />
       <CardContent>
         <DecryptBalance address={deployment.wrapper} abi={wrapper.abi} />
+        <WrapButton />
       </CardContent>
     </Card>
   );
