@@ -13,6 +13,8 @@ import { rivest } from "@/util/rivest";
 import MintButton from "./MintButton";
 import usdcToken from "@/util/usdcToken";
 import BurnButton from "./BurnButton";
+import ApprovalButton from "./ApprovalButton";
+import Balance from "./Balance";
 
 export default function Erc20() {
   const theme = useTheme();
@@ -40,6 +42,7 @@ export default function Erc20() {
         }
       />
       <CardContent>
+        <Balance />
         <MintButton
           address={deployment.usdcToken}
           abi={usdcToken.abi}
@@ -50,6 +53,7 @@ export default function Erc20() {
           abi={usdcToken.abi}
           burnFunction="burn"
         />
+        <ApprovalButton />
       </CardContent>
     </Card>
   );
