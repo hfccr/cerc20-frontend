@@ -14,6 +14,7 @@ import { Addreth } from "addreth";
 import { useReadContract } from "wagmi";
 import MintButton from "./MintButton";
 import BurnButton from "./BurnButton";
+import DecryptBalance from "./DecryptBalance";
 
 export default function ConfidentailToken() {
   const { data: name, isFetched: isNameFetched } = useReadContract({
@@ -74,6 +75,7 @@ export default function ConfidentailToken() {
         <Paper variant="outlined">
           <CardContent>
             <Typography variant="h5">Balance</Typography>
+            <DecryptBalance />
           </CardContent>
         </Paper>
       </Stack>
