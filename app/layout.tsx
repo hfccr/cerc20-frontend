@@ -14,10 +14,29 @@ import { WagmiProvider } from "wagmi";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import "./global.css";
 import config from "@/util/wagmiConfig";
-import "@fontsource/roboto/300.css";
-import "@fontsource/roboto/400.css";
-import "@fontsource/roboto/500.css";
-import "@fontsource/roboto/700.css";
+import localFont from "next/font/local";
+import "@fontsource/ibm-plex-sans";
+import "@fontsource/ibm-plex-sans/100.css";
+import "@fontsource/ibm-plex-sans/200.css";
+import "@fontsource/ibm-plex-sans/300.css";
+import "@fontsource/ibm-plex-sans/400.css";
+import "@fontsource/ibm-plex-sans/500.css";
+import "@fontsource/ibm-plex-sans/600.css";
+import "@fontsource/ibm-plex-sans/700.css";
+
+const generalSansMedium = localFont({
+  src: "./fonts/GeneralSans-Medium.woff2",
+  weight: "500",
+});
+const generalSansRegular = localFont({
+  src: "./fonts/GeneralSans-Regular.woff2",
+  weight: "400",
+});
+
+const generalSansSemibold = localFont({
+  src: "./fonts/GeneralSans-Semibold.woff2",
+  weight: "600",
+});
 
 const NAVIGATION: Navigation = [
   {
