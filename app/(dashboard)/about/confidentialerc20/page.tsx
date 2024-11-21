@@ -24,6 +24,7 @@ export default function ConfidentialErc20Page() {
                 such as the users themselves or designated regulators, can view them"
               />
             </ListItem>
+            <Divider />
             <ListItem>
               <ListItemText
                 primary="Encrypted Transfers"
@@ -31,6 +32,7 @@ export default function ConfidentialErc20Page() {
                 addresses are encrypted so that the details of the transactions are not exposed to the public"
               />
             </ListItem>
+            <Divider />
             <ListItem>
               <ListItemText
                 primary="Delegated Viewing (Optional)"
@@ -38,6 +40,7 @@ export default function ConfidentialErc20Page() {
                  auditors or regulators, without compromising the privacy of token holders"
               />
             </ListItem>
+            <Divider />
             <ListItem>
               <ListItemText
                 primary="Programmable Transfer Rules (Optional)"
