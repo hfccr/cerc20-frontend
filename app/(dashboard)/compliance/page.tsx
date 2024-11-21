@@ -1,5 +1,5 @@
-import Audit from "@/components/Audit";
+import CompliantToken from "@/components/CompliantToken";
 
 export default function CompliancePage() {
-  return <Audit />;
+  return <CompliantToken />;
 }
