@@ -1,23 +1,17 @@
 
-# Create Toolpad App
+# CERC20 Playground
 
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-toolpad-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+This project is aimed at interacting with and understanding the FHE based Confidential ERC20 Framework developed by Inco Network and Circle Research.
 
-## Setup
+## Before You Start
 
-Run `npx auth secret` to generate a secret and replace the value in the .env.local file with it.
-
-Add the CLIENT_ID and CLIENT_SECRET from your OAuth provider to the .env.local file.
+* Add [Inco Rivest Testnet](https://docs.inco.org/getting-started/connect-metamask) to MetaMask
+* Obtain Rivest Testnet tokens from the [Faucet](https://docs.inco.org/getting-started/faucet)
 
 ## Getting Started
 
-First, run the development server: `npm run dev`
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+* Ensure you are running node >= `20.9.0`.
+* Clone the project and run `npm install`.
+* Create a `.env.local` file and add `NEXT_PUBLIC_PROJECT_ID` and set it to you [Wallet Connect Cloud](https://cloud.walletconnect.com/) Project ID.
+* Use `npm run dev` to start the dev server.
+* Open [http://localhost:3000](http://localhost:3000) with your browser to use the dApp.
