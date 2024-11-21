@@ -1,3 +1,5 @@
+import Audit from "@/components/Audit";
+
 export default function CompliancePage() {
-  return <>Compliance</>;
+  return <Audit />;
 }
