@@ -13,6 +13,7 @@ import {
 import { Addreth } from "addreth";
 import AssuredWorkloadIcon from "@mui/icons-material/AssuredWorkload";
 import Audit from "./Audit";
+import DecryptBalanceOfAddress from "./DecryptBalanceOfAddress";
 
 export default function CompliantToken() {
   const theme = useTheme();
@@ -55,6 +56,9 @@ export default function CompliantToken() {
         <Grid2 container spacing={2}>
           <Grid2 size={{ xs: 12, sm: 12, md: 12, lg: 6, xl: 6 }}>
             <Audit />
+          </Grid2>
+          <Grid2 size={{ xs: 12, sm: 12, md: 12, lg: 6, xl: 6 }}>
+            <DecryptBalanceOfAddress />
           </Grid2>
         </Grid2>
       </Stack>
