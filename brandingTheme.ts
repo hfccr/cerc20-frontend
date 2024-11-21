@@ -1335,7 +1335,7 @@ export function getThemedComponents(): ThemeOptions {
           root: ({ theme, ownerState }) => [
             {
               backgroundImage: "none",
-              backgroundColor: "#fdfdfd",
+              backgroundColor: "#fcfcfc",
               "&[href]": {
                 textDecorationLine: "none",
               },
@@ -1344,7 +1344,7 @@ export function getThemedComponents(): ThemeOptions {
               }),
               ...(ownerState.variant === "outlined" && {
                 display: "block",
-                borderColor: (theme.vars || theme).palette.grey[100],
+                borderColor: (theme.vars || theme).palette.grey[200],
                 "&[href]": {
                   textDecorationLine: "none",
                   boxShadow: `hsl(200, 0%, 100%) 0 2px 0 inset, ${alpha(theme.palette.grey[100], 0.3)} 0 -2px 0 inset, ${alpha(theme.palette.grey[200], 0.5)} 0 1px 2px 0`,
