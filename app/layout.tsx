@@ -66,7 +66,7 @@ const NAVIGATION: Navigation = [
 ];
 
 const BRANDING = {
-  title: "CERC20",
+  title: "CERC20 Playground",
   logo: <> </>,
 };
 
