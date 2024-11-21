@@ -2,7 +2,7 @@
 import * as React from "react";
 import { AppProvider } from "@toolpad/core/nextjs";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v14-appRouter";
-import DashboardIcon from "@mui/icons-material/Dashboard";
+import HomeIcon from "@mui/icons-material/Home";
 import CircleIcon from "@mui/icons-material/Circle";
 import EnhancedEncryptionIcon from "@mui/icons-material/EnhancedEncryption";
 import AssuredWorkloadIcon from "@mui/icons-material/AssuredWorkload";
@@ -22,12 +22,12 @@ import "@fontsource/roboto/700.css";
 const NAVIGATION: Navigation = [
   {
     kind: "header",
-    title: "Main items",
+    title: "CERC20 Playground",
   },
   {
     segment: "",
-    title: "Dashboard",
-    icon: <DashboardIcon />,
+    title: "Home",
+    icon: <HomeIcon />,
   },
   {
     segment: "token",
