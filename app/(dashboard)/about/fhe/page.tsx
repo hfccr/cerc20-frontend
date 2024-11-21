@@ -49,8 +49,8 @@ export default function FhePage() {
                 primary="Global Private Key"
                 secondary="Ciphertexts are encrypted under a global FHE
                 public key for composability, with decryption done by a
-                trusted authority that holds the private key and m out
-                of n MPC and TEE can be used to mitigate risk"
+                trusted authority that holds the private key with key
+                rotation, m out of n MPC and TEE used to mitigate risk"
               />
             </ListItem>
           </List>
