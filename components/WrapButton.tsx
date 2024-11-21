@@ -77,7 +77,7 @@ export default function WrapButton() {
               isConnected &&
               !wrongChain
             }
-            variant="contained"
+            variant="outlined"
             disabled={!approved || !isConnected || wrongChain}
             onClick={handleApproval}
             color={isConfirmed ? "success" : isError ? "error" : "primary"}

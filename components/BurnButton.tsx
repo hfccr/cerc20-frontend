@@ -59,7 +59,7 @@ export default function BurnButton({
         <Box>
           <LoadingButton
             loading={isPending || isConfirming}
-            variant="contained"
+            variant="outlined"
             disabled={!isConnected || wrongChain}
             onClick={handleBurn}
             color={isConfirmed ? "success" : isError ? "error" : "primary"}

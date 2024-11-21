@@ -23,7 +23,7 @@ export default function Balance() {
     title = "Balance: " + balance?.toString();
   }
   return (
-    <LoadingButton loading={!isFetched} variant="contained" disabled={true}>
+    <LoadingButton loading={!isFetched} variant="outlined" disabled={true}>
       {title}
     </LoadingButton>
   );

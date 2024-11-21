@@ -73,7 +73,7 @@ export default function AuditorButton() {
               isConnected &&
               !wrongChain
             }
-            variant="contained"
+            variant="outlined"
             disabled={!isConnected || wrongChain}
             onClick={handleAuditorRole}
             color={isConfirmed ? "success" : isError ? "error" : "primary"}

@@ -125,7 +125,7 @@ export default function DecryptBalance({ address, abi }: DecryptBalanceProps) {
         <Box>
           <LoadingButton
             loading={isFetching}
-            variant="contained"
+            variant="outlined"
             disabled={!isConnected || wrongChain}
             onClick={handleDecryption}
             color={isSuccess ? "success" : isError ? "error" : "primary"}

@@ -57,7 +57,7 @@ export default function MintButton({
         <Box>
           <LoadingButton
             loading={isPending || isConfirming}
-            variant="contained"
+            variant="outlined"
             disabled={!isConnected || wrongChain}
             onClick={handleMint}
             color={isConfirmed ? "success" : isError ? "error" : "primary"}

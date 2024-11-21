@@ -55,7 +55,7 @@ export default function UnwrapButton() {
         <Box>
           <LoadingButton
             loading={(isPending || isConfirming) && isConnected && !wrongChain}
-            variant="contained"
+            variant="outlined"
             disabled={!isConnected || wrongChain}
             onClick={handleApproval}
             color={isConfirmed ? "success" : isError ? "error" : "primary"}

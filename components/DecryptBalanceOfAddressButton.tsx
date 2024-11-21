@@ -161,7 +161,7 @@ export default function DecryptBalanceOfAddressButton({}) {
           />
           <LoadingButton
             loading={isFetching}
-            variant="contained"
+            variant="outlined"
             disabled={!isConnected || wrongChain || !isValid || !isAuditor}
             onClick={handleDecryption}
             color={isSuccess ? "success" : isError ? "error" : "primary"}
