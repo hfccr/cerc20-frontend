@@ -21,27 +21,31 @@ export default function ConfidentialityPage() {
             <CardContent>
               <List>
                 <ListItem>
-                  <ListItemText primary="Who" secondary="Privacy" />
+                  <ListItemText secondary="Who" primary="Privacy" />
                 </ListItem>
+                <Divider />
                 <ListItem>
                   <ListItemText
-                    primary="? sent $10 to ?"
-                    secondary="Public Information"
+                    secondary="? sent $10 to ?"
+                    primary="Public Information"
                   />
                 </ListItem>
+                <Divider />
                 <ListItem>
                   <ListItemText
-                    primary="Paying doctor or donating to political campaign"
-                    secondary="Scenarios When Needed"
+                    secondary="Paying doctor or donating to political campaign"
+                    primary="Scenarios When Needed"
                   />
                 </ListItem>
+                <Divider />
                 <ListItem>
-                  <ListItemText primary="Tornado Cash" secondary="Examples" />
+                  <ListItemText secondary="Tornado Cash" primary="Examples" />
                 </ListItem>
+                <Divider />
                 <ListItem>
                   <ListItemText
-                    primary="High Risk With Bad Actors Obfuscating Activity"
-                    secondary="Risk"
+                    secondary="High Risk With Bad Actors Obfuscating Activity"
+                    primary="Risk"
                   />
                 </ListItem>
               </List>
@@ -55,30 +59,34 @@ export default function ConfidentialityPage() {
             <CardContent>
               <List>
                 <ListItem>
-                  <ListItemText primary="How Much" secondary="Privacy" />
+                  <ListItemText secondary="How Much" primary="Privacy" />
                 </ListItem>
+                <Divider />
                 <ListItem>
                   <ListItemText
-                    primary="Alice sent ? to Bob"
-                    secondary="Public Information"
+                    secondary="Alice sent ? to Bob"
+                    primary="Public Information"
                   />
                 </ListItem>
+                <Divider />
                 <ListItem>
                   <ListItemText
-                    primary="Payroll, supply chain, vendory payments"
-                    secondary="Scenarios When Needed"
+                    secondary="Payroll, supply chain, vendory payments"
+                    primary="Scenarios When Needed"
                   />
                 </ListItem>
+                <Divider />
                 <ListItem>
                   <ListItemText
-                    primary="Confidential ERC20"
-                    secondary="Examples"
+                    secondary="Confidential ERC20"
+                    primary="Examples"
                   />
                 </ListItem>
+                <Divider />
                 <ListItem>
                   <ListItemText
-                    primary="Low Risk With Provision For Audits"
-                    secondary="Risk"
+                    secondary="Low Risk With Provision For Audits"
+                    primary="Risk"
                   />
                 </ListItem>
               </List>
