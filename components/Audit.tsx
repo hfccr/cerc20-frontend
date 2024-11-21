@@ -1,4 +1,5 @@
 import { Card, CardContent, CardHeader, Typography } from "@mui/material";
+import AuditorButton from "./AuditorButton";
 
 export default function Audit() {
   return (
@@ -7,7 +8,9 @@ export default function Audit() {
         disableTypography
         title={<Typography variant="h4">Audit</Typography>}
       />
-      <CardContent></CardContent>
+      <CardContent>
+        <AuditorButton />
+      </CardContent>
     </Card>
   );
 }
