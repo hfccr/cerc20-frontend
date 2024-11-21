@@ -3,6 +3,10 @@ import {
   Card,
   CardContent,
   CardHeader,
+  Divider,
+  List,
+  ListItem,
+  ListItemText,
   Typography,
   useTheme,
 } from "@mui/material";
@@ -13,13 +17,14 @@ import { rivest } from "@/util/rivest";
 import DecryptBalance from "./DecryptBalance";
 import wrapper from "@/util/wrapper";
 import WrapButton from "./WrapButton";
+import UnwrapButton from "./UnwrapButton";
 
 export default function Wrapper() {
   const theme = useTheme();
   return (
     <Card variant="outlined">
       <CardHeader
-        title={<Typography variant="h5">Wrapped cUSDC</Typography>}
+        title={<Typography variant="h4">Wrapped cUSDC</Typography>}
         subheader={
           <Addreth
             address={deployment.wrapper}
@@ -34,14 +39,69 @@ export default function Wrapper() {
         avatar={<LockIcon fontSize="large" />}
         disableTypography
         action={
-          <Typography variant="h6" sx={{ mt: 0.5, ml: 4, mr: 1 }}>
+          <Typography variant="h5" sx={{ mt: 0.5, ml: 4, mr: 1 }}>
             $wcUSDC
           </Typography>
         }
       />
       <CardContent>
-        <DecryptBalance address={deployment.wrapper} abi={wrapper.abi} />
-        <WrapButton />
+        <List>
+          <ListItem
+            component="div"
+            sx={{
+              pr: "200px",
+              "& .MuiListItemSecondaryAction-root": {
+                transform: "none",
+                top: "calc(50% - 20px)",
+              },
+            }}
+            secondaryAction={
+              <DecryptBalance address={deployment.wrapper} abi={wrapper.abi} />
+            }
+          >
+            <ListItemText
+              primary="Decrypt Balance"
+              // secondary={`Decrypt balance of wcUSDC tokens. Balance increases when
+              //   a user wraps USDC tokens or receives wcUSDC tokens from another user.
+              //   Balance reduces when a user unwraps wcUSDC tokens or sends wcUSDC tokens
+              //   to another user.`}
+            />
+          </ListItem>
+          <Divider sx={{ mt: 1, mb: 1 }} />
+          <ListItem
+            secondaryAction={<WrapButton />}
+            component="div"
+            sx={{
+              pr: "200px",
+              "& .MuiListItemSecondaryAction-root": {
+                transform: "none",
+                top: "calc(50% - 20px)",
+              },
+            }}
+          >
+            <ListItemText
+              primary="Wrap USDC"
+              secondary={`Wrapping USDC tokens converts them into wcUSDC tokens.
+                 Wrapper moves approved tokens to the wrapper contract and tracks
+                  user balance internally using encrypted numbers. Wrapper contract itself is
+                a Confidential ERC20 token with wrap and unwrap methods linked to another
+                non confidential ERC20 token.`}
+            />
+          </ListItem>
+          <Divider sx={{ mt: 1, mb: 1 }} />
+          <ListItem
+            secondaryAction={<UnwrapButton />}
+            sx={{
+              pr: "200px",
+              "& .MuiListItemSecondaryAction-root": {
+                transform: "none",
+                top: "calc(50% - 20px)",
+              },
+            }}
+          >
+            <ListItemText primary="Unwrap wcUSDC" />
+          </ListItem>
+        </List>
       </CardContent>
     </Card>
   );

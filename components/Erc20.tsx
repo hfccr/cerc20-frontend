@@ -1,8 +1,13 @@
 "use client";
 import {
+  Box,
   Card,
   CardContent,
   CardHeader,
+  Divider,
+  List,
+  ListItem,
+  ListItemText,
   Typography,
   useTheme,
 } from "@mui/material";
@@ -21,7 +26,7 @@ export default function Erc20() {
   return (
     <Card variant="outlined">
       <CardHeader
-        title={<Typography variant="h5">USD Coin</Typography>}
+        title={<Typography variant="h4">USD Coin</Typography>}
         subheader={
           <Addreth
             address={deployment.usdcToken}
@@ -36,24 +41,79 @@ export default function Erc20() {
         avatar={<PaidIcon fontSize="large" />}
         disableTypography
         action={
-          <Typography variant="h6" sx={{ mt: 0.5, ml: 4, mr: 1 }}>
+          <Typography variant="h5" sx={{ mt: 0.5, ml: 4, mr: 1 }}>
             $USDC
           </Typography>
         }
       />
       <CardContent>
-        <Balance />
-        <MintButton
-          address={deployment.usdcToken}
-          abi={usdcToken.abi}
-          mintFunction="mint"
-        />
-        <BurnButton
-          address={deployment.usdcToken}
-          abi={usdcToken.abi}
-          burnFunction="burn"
-        />
-        <ApprovalButton />
+        <List component="div">
+          <ListItem
+            secondaryAction={<Balance />}
+            component="div"
+            sx={{
+              "& .MuiListItemSecondaryAction-root": {
+                transform: "none",
+                top: "calc(50% - 20px)",
+              },
+            }}
+          >
+            <ListItemText primary="USDC Balance" />
+          </ListItem>
+          <Divider sx={{ mt: 1, mb: 1 }} />
+          <ListItem
+            component="div"
+            sx={{
+              "& .MuiListItemSecondaryAction-root": {
+                transform: "none",
+                top: "calc(50% - 20px)",
+              },
+            }}
+            secondaryAction={
+              <Box>
+                <MintButton
+                  address={deployment.usdcToken}
+                  abi={usdcToken.abi}
+                  mintFunction="mint"
+                />
+              </Box>
+            }
+          >
+            <ListItemText primary="Mint USDC" />
+          </ListItem>
+          <Divider sx={{ mt: 1, mb: 1 }} />
+          <ListItem
+            component="div"
+            sx={{
+              "& .MuiListItemSecondaryAction-root": {
+                transform: "none",
+                top: "calc(50% - 20px)",
+              },
+            }}
+            secondaryAction={
+              <BurnButton
+                address={deployment.usdcToken}
+                abi={usdcToken.abi}
+                burnFunction="burn"
+              />
+            }
+          >
+            <ListItemText primary="Burn USDC" />
+          </ListItem>
+          <Divider sx={{ mt: 1, mb: 1 }} />
+          <ListItem
+            secondaryAction={<ApprovalButton />}
+            component="div"
+            sx={{
+              "& .MuiListItemSecondaryAction-root": {
+                transform: "none",
+                top: "calc(50% - 20px)",
+              },
+            }}
+          >
+            <ListItemText primary="Approve Transfer" />
+          </ListItem>
+        </List>
       </CardContent>
     </Card>
   );

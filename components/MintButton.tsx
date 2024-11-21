@@ -70,12 +70,17 @@ export default function MintButton({
           </LoadingButton>
         </Box>
       </Tooltip>
-      <Snackbar open={isPending} autoHideDuration={2000}>
+      <Snackbar
+        open={isPending}
+        autoHideDuration={2000}
+        anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
+      >
         <Alert severity="info">Waiting for confirmation</Alert>
       </Snackbar>
       <Snackbar
         open={isSuccess && !isError && !isConfirmed}
         autoHideDuration={2000}
+        anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
       >
         <Alert severity="info">Waiting for transaction</Alert>
       </Snackbar>
@@ -83,6 +88,7 @@ export default function MintButton({
         open={isError && !errorDismissed}
         autoHideDuration={2000}
         onClose={() => setErrorDismissed(true)}
+        anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
       >
         <Alert severity="error">Failed to Mint tokens</Alert>
       </Snackbar>
@@ -90,6 +96,7 @@ export default function MintButton({
         open={isConfirmed && !successDismissed}
         autoHideDuration={2000}
         onClose={() => setSuccessDismissed(true)}
+        anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
       >
         <Alert severity="success">Tokens Minted</Alert>
       </Snackbar>
