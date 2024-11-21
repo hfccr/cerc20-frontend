@@ -76,25 +76,27 @@ export default function RootLayout(props: { children: React.ReactNode }) {
   return (
     <html lang="en" data-toolpad-color-scheme="light" suppressHydrationWarning>
       <body>
-        <WagmiProvider config={config}>
-          <QueryClientProvider client={queryClient}>
-            <RainbowKitProvider
-              theme={darkTheme({
-                fontStack: "system",
-              })}
-            >
-              <AppRouterCacheProvider options={{ enableCssLayer: true }}>
-                <AppProvider
-                  navigation={NAVIGATION}
-                  branding={BRANDING}
-                  theme={theme}
-                >
-                  {props.children}
-                </AppProvider>
-              </AppRouterCacheProvider>
-            </RainbowKitProvider>
-          </QueryClientProvider>
-        </WagmiProvider>
+        <React.Suspense>
+          <WagmiProvider config={config}>
+            <QueryClientProvider client={queryClient}>
+              <RainbowKitProvider
+                theme={darkTheme({
+                  fontStack: "system",
+                })}
+              >
+                <AppRouterCacheProvider options={{ enableCssLayer: true }}>
+                  <AppProvider
+                    navigation={NAVIGATION}
+                    branding={BRANDING}
+                    theme={theme}
+                  >
+                    {props.children}
+                  </AppProvider>
+                </AppRouterCacheProvider>
+              </RainbowKitProvider>
+            </QueryClientProvider>
+          </WagmiProvider>
+        </React.Suspense>
       </body>
     </html>
   );
