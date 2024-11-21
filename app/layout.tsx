@@ -9,7 +9,11 @@ import AssuredWorkloadIcon from "@mui/icons-material/AssuredWorkload";
 import type { Navigation } from "@toolpad/core/AppProvider";
 import theme from "../theme";
 import "@rainbow-me/rainbowkit/styles.css";
-import { RainbowKitProvider, darkTheme } from "@rainbow-me/rainbowkit";
+import {
+  RainbowKitProvider,
+  darkTheme,
+  lightTheme,
+} from "@rainbow-me/rainbowkit";
 import { WagmiProvider } from "wagmi";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import "./global.css";
@@ -80,9 +84,14 @@ export default function RootLayout(props: { children: React.ReactNode }) {
           <WagmiProvider config={config}>
             <QueryClientProvider client={queryClient}>
               <RainbowKitProvider
-                theme={darkTheme({
-                  fontStack: "system",
-                })}
+                theme={{
+                  darkMode: darkTheme({
+                    fontStack: "system",
+                  }),
+                  lightMode: lightTheme({
+                    fontStack: "system",
+                  }),
+                }}
               >
                 <AppRouterCacheProvider options={{ enableCssLayer: true }}>
                   <AppProvider
