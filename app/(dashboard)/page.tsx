@@ -16,7 +16,19 @@ export default function HomePage() {
       >
         <Paper variant="outlined">
           <CardContent>
-            <Typography variant="h1">Confidential ERC20 Playground</Typography>
+            <Stack direction="column" spacing={4}>
+              <Typography variant="h1" sx={{ textAlign: "center" }}>
+                Confidential ERC20 Playground
+              </Typography>
+              <Typography
+                variant="body1"
+                sx={{ textAlign: "center", pl: 4, pr: 4 }}
+              >
+                Transforms ERC20 tokens into a confidential form that conceals
+                balances and transaction amounts, with optional viewing and
+                transfer rules to meet regulatory obligations
+              </Typography>
+            </Stack>
           </CardContent>
         </Paper>
         <Container maxWidth="sm">
