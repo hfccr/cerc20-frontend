@@ -12,6 +12,11 @@ export const mintConfidentialToken = `
 `;
 
 export const burnConfidentialToken = `
+    uint64 public _totalSupply;
+    struct BurnRq {
+        address account;
+        uint64 amount;
+    }
     mapping(address account => euint64) public _balances;
     function _requestBurn(address account, uint64 amount) internal virtual {
         if (account == address(0)) {
