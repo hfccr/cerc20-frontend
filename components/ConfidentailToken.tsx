@@ -168,7 +168,8 @@ export default function ConfidentailToken() {
               <Typography variant="body1" sx={{ color: "text.secondary" }}>
                 Decrypt your balance. The encrypted balance is fetched from the
                 contract and a reencryption request is created with a locally
-                generated key pair.
+                generated key signed pair to the Gateway which is decrypted
+                locally.
               </Typography>
             </CardContent>
             <CardActions>
