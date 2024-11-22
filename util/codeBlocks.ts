@@ -1,4 +1,5 @@
 export const mintConfidentialToken = `
+    mapping(address account => euint64) public _balances;
     function _mint(address account, uint64 value) internal {
         if (account == address(0)) {
             revert ERC20InvalidReceiver(address(0));
@@ -11,6 +12,7 @@ export const mintConfidentialToken = `
 `;
 
 export const burnConfidentialToken = `
+    mapping(address account => euint64) public _balances;
     function _requestBurn(address account, uint64 amount) internal virtual {
         if (account == address(0)) {
             revert ERC20InvalidReceiver(address(0));
