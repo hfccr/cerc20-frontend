@@ -5,6 +5,7 @@ import { AppRouterCacheProvider } from "@mui/material-nextjs/v14-appRouter";
 import HomeIcon from "@mui/icons-material/Home";
 import CircleIcon from "@mui/icons-material/Circle";
 import EnhancedEncryptionIcon from "@mui/icons-material/EnhancedEncryption";
+import InfoIcon from "@mui/icons-material/Info";
 import AssuredWorkloadIcon from "@mui/icons-material/AssuredWorkload";
 import type { Navigation } from "@toolpad/core/AppProvider";
 import theme from "../theme";
@@ -51,6 +52,37 @@ const NAVIGATION: Navigation = [
     segment: "",
     title: "Home",
     icon: <HomeIcon />,
+  },
+  {
+    segment: "about",
+    title: "About",
+    icon: <InfoIcon />,
+    children: [
+      {
+        segment: "blockchainprivacy",
+        title: "Blockchain Privacy",
+      },
+      {
+        segment: "confidentiality",
+        title: "Privacy",
+      },
+      {
+        segment: "confidentialerc20",
+        title: "Confidential ERC20",
+      },
+      {
+        segment: "fhe",
+        title: "FHE",
+      },
+      {
+        segment: "fheevm",
+        title: "FHE EVM",
+      },
+      {
+        segment: "zkvsfhe",
+        title: "ZK vs FHE",
+      },
+    ],
   },
   {
     segment: "token",
