@@ -221,8 +221,8 @@ export const getDesignTokens = (mode: "light" | "dark") =>
       },
       text: {
         ...(mode === "light" && {
-          primary: grey[900],
-          secondary: grey[800],
+          primary: grey[700],
+          secondary: grey[600],
           tertiary: grey[700],
         }),
         ...(mode === "dark" && {
