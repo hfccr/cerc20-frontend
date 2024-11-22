@@ -82,6 +82,10 @@ const NAVIGATION: Navigation = [
         segment: "zkvsfhe",
         title: "ZK vs FHE",
       },
+      {
+        segment: "usecases",
+        title: "Use Cases",
+      },
     ],
   },
   {
