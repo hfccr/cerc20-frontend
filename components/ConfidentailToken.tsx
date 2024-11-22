@@ -23,6 +23,8 @@ import AddCircleIcon from "@mui/icons-material/AddCircle";
 import LocalFireDepartmentIcon from "@mui/icons-material/LocalFireDepartment";
 import LockOpenIcon from "@mui/icons-material/LockOpen";
 import CircleIcon from "@mui/icons-material/Circle";
+import CodeViewer from "./CodeViewer";
+import { mintConfidentialToken } from "@/util/codeBlocks";
 
 export default function ConfidentailToken() {
   const { data: name, isFetched: isNameFetched } = useReadContract({
@@ -88,6 +90,12 @@ export default function ConfidentailToken() {
               title={<Typography variant="h4">Mint</Typography>}
               avatar={<AddCircleIcon fontSize="large" />}
               disableTypography={true}
+              action={
+                <CodeViewer
+                  title="Mint Confidential Token"
+                  codeBlock={mintConfidentialToken}
+                />
+              }
             />
             <CardContent>
               <Typography variant="body1" sx={{ color: "text.secondary" }}>
