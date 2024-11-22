@@ -358,6 +358,26 @@ export const unwrapCode = `
         _requestBurn(msg.sender, uint64(amount));
     }
 
+    function _requestBurn(address account, uint64 amount) internal virtual {
+        if (account == address(0)) {
+            revert ERC20InvalidReceiver(address(0));
+        }
+        ebool enoughBalance = TFHE.le(amount, _balances[account]);
+        TFHE.allow(enoughBalance, address(this));
+        uint256[] memory cts = new uint256[](1);
+        cts[0] = Gateway.toUint256(enoughBalance);
+        // Store burn request
+        uint256 requestID = Gateway.requestDecryption(
+            cts,
+            this._burnCallback.selector,
+            0,
+            block.timestamp + 100,
+            false
+        );
+
+        burnRqs[requestID] = BurnRq(account, amount);
+    }
+
     function _burnCallback(uint256 requestID, bool decryptedInput) public virtual override onlyGateway {
         BurnRq memory burnRequest = burnRqs[requestID];
         address account = burnRequest.account;
