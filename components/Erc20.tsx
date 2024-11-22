@@ -111,7 +111,7 @@ export default function Erc20() {
               },
             }}
           >
-            <ListItemText primary="Approve Transfer" />
+            <ListItemText primary="Approve Transfer To Wrapper" />
           </ListItem>
         </List>
       </CardContent>
