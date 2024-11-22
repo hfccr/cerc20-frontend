@@ -5,6 +5,8 @@ import {
   List,
   ListItem,
   ListItemText,
+  Stack,
+  Typography,
 } from "@mui/material";
 import AuditorButton from "./AuditorButton";
 import DecryptBalance from "./DecryptBalance";
@@ -12,6 +14,13 @@ import deployment from "@/util/deployment";
 import compliant from "@/util/compliant";
 import MintButton from "./MintButton";
 import BurnButton from "./BurnButton";
+import {
+  auditorRoleAssignCode,
+  burnConfidentialToken,
+  getConfidentialBalance,
+  mintConfidentialToken,
+} from "@/util/codeBlocks";
+import CodeViewer from "./CodeViewer";
 
 export default function Audit() {
   return (
@@ -30,7 +39,16 @@ export default function Audit() {
             secondaryAction={<AuditorButton />}
           >
             <ListItemText
-              primary="Auditor Role"
+              primary={
+                <Stack direction="row" alignItems="center">
+                  <Typography>Auditor Role</Typography>
+                  <CodeViewer
+                    title="Auditor Role"
+                    codeBlock={auditorRoleAssignCode}
+                    description="Get or revoke auditor role"
+                  />
+                </Stack>
+              }
               secondary="Having this role allows you to view encrypted balance of other addresses and add them to blacklist"
             />
           </ListItem>
@@ -50,7 +68,18 @@ export default function Audit() {
               />
             }
           >
-            <ListItemText primary="ccUSDC Balance" />
+            <ListItemText
+              primary={
+                <Stack direction="row" alignItems="center">
+                  <Typography>wcUSDC Balance</Typography>
+                  <CodeViewer
+                    title="wcUSDC Balance"
+                    codeBlock={getConfidentialBalance}
+                    description="Get confidential balance of Compliant Confidential USDC Token"
+                  />
+                </Stack>
+              }
+            />
           </ListItem>
           <Divider sx={{ mt: 1, mb: 2 }} />
           <ListItem
@@ -69,7 +98,18 @@ export default function Audit() {
               />
             }
           >
-            <ListItemText primary="Mint ccUSDC" />
+            <ListItemText
+              primary={
+                <Stack direction="row" alignItems="center">
+                  <Typography>Mint wcUSDC</Typography>
+                  <CodeViewer
+                    title="Mint ccUSDC"
+                    codeBlock={mintConfidentialToken}
+                    description="Mints Compliant Confidential USDC Token"
+                  />
+                </Stack>
+              }
+            />
           </ListItem>
           <Divider sx={{ mt: 1, mb: 2 }} />
           <ListItem
@@ -88,7 +128,18 @@ export default function Audit() {
               />
             }
           >
-            <ListItemText primary="Burn ccUSDC" />
+            <ListItemText
+              primary={
+                <Stack direction="row" alignItems="center">
+                  <Typography>Burn wcUSDC</Typography>
+                  <CodeViewer
+                    title="Burn ccUSDC"
+                    codeBlock={burnConfidentialToken}
+                    description="Burns Compliant Confidential USDC Token"
+                  />
+                </Stack>
+              }
+            />
           </ListItem>
         </List>
       </CardContent>

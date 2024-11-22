@@ -14,6 +14,8 @@ import { Addreth } from "addreth";
 import AssuredWorkloadIcon from "@mui/icons-material/AssuredWorkload";
 import Audit from "./Audit";
 import DecryptBalanceOfAddress from "./DecryptBalanceOfAddress";
+import CodeViewer from "./CodeViewer";
+import { compliantCode } from "@/util/codeBlocks";
 
 export default function CompliantToken() {
   const theme = useTheme();
@@ -37,7 +39,13 @@ export default function CompliantToken() {
                   justifyContent="space-between"
                   alignItems="center"
                 >
-                  <Typography variant="h4">Compliant cUSDC</Typography>
+                  <Stack direction="row" alignItems="center" spacing={0}>
+                    <Typography variant="h4">Compliant cUSDC</Typography>
+                    <CodeViewer
+                      title="Compliant Confidential USDC Token"
+                      codeBlock={compliantCode}
+                    />
+                  </Stack>
                   <Typography variant="h6">$ccUSDC</Typography>
                 </Stack>
                 <Addreth
