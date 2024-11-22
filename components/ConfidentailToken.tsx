@@ -24,7 +24,12 @@ import LocalFireDepartmentIcon from "@mui/icons-material/LocalFireDepartment";
 import LockOpenIcon from "@mui/icons-material/LockOpen";
 import CircleIcon from "@mui/icons-material/Circle";
 import CodeViewer from "./CodeViewer";
-import { mintConfidentialToken } from "@/util/codeBlocks";
+import {
+  burnConfidentialToken,
+  confidentialTokenCode,
+  getConfidentialBalance,
+  mintConfidentialToken,
+} from "@/util/codeBlocks";
 
 export default function ConfidentailToken() {
   const { data: name, isFetched: isNameFetched } = useReadContract({
@@ -58,10 +63,18 @@ export default function ConfidentailToken() {
                   justifyContent="space-between"
                   alignItems="center"
                 >
-                  <Typography variant="h4">
-                    {isNameFetched && <>{name}</>}
-                    {!isNameFetched && <Skeleton width={150} variant="text" />}
-                  </Typography>
+                  <Stack direction="row" alignItems="center" spacing={1}>
+                    <Typography variant="h4">
+                      {isNameFetched && <>{name}</>}
+                      {!isNameFetched && (
+                        <Skeleton width={150} variant="text" />
+                      )}
+                    </Typography>
+                    <CodeViewer
+                      title="Confidential Token"
+                      codeBlock={confidentialTokenCode}
+                    />
+                  </Stack>
                   <Typography variant="h6">
                     {isSymbolFetched && <>${symbol}</>}
                     {!isSymbolFetched && <Skeleton width={50} variant="text" />}
@@ -117,6 +130,12 @@ export default function ConfidentailToken() {
               title={<Typography variant="h4">Burn</Typography>}
               avatar={<LocalFireDepartmentIcon fontSize="large" />}
               disableTypography={true}
+              action={
+                <CodeViewer
+                  title="Burn Confidential Token"
+                  codeBlock={burnConfidentialToken}
+                />
+              }
             />
             <CardContent>
               <Typography variant="body1" sx={{ color: "text.secondary" }}>
@@ -138,6 +157,12 @@ export default function ConfidentailToken() {
               title={<Typography variant="h4">Balance</Typography>}
               avatar={<LockOpenIcon fontSize="large" />}
               disableTypography={true}
+              action={
+                <CodeViewer
+                  title="View Confidential Balance"
+                  codeBlock={getConfidentialBalance}
+                />
+              }
             />
             <CardContent>
               <Typography variant="body1" sx={{ color: "text.secondary" }}>
