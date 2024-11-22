@@ -7,6 +7,7 @@ import {
   List,
   ListItem,
   ListItemText,
+  Stack,
   Typography,
   useTheme,
 } from "@mui/material";
@@ -18,13 +19,29 @@ import DecryptBalance from "./DecryptBalance";
 import wrapper from "@/util/wrapper";
 import WrapButton from "./WrapButton";
 import UnwrapButton from "./UnwrapButton";
+import CodeViewer from "./CodeViewer";
+import {
+  getConfidentialBalance,
+  unwrapCode,
+  wrapCode,
+  wrapperCode,
+} from "@/util/codeBlocks";
 
 export default function Wrapper() {
   const theme = useTheme();
   return (
     <Card variant="outlined">
       <CardHeader
-        title={<Typography variant="h4">Wrapped cUSDC</Typography>}
+        title={
+          <Stack direction="row" alignItems="center">
+            <Typography variant="h4">Wrapped cUSDC</Typography>
+            <CodeViewer
+              title="Wrapper Contract"
+              codeBlock={wrapperCode}
+              description="Wraps and unwraps USDC tokens to wcUSDC tokens"
+            />
+          </Stack>
+        }
         subheader={
           <Addreth
             address={deployment.wrapper}
@@ -60,7 +77,15 @@ export default function Wrapper() {
             }
           >
             <ListItemText
-              primary="Decrypt Balance"
+              primary={
+                <Stack direction="row" alignItems="center">
+                  <Typography>Decrypt Balance</Typography>
+                  <CodeViewer
+                    title="Decrypt Balance"
+                    codeBlock={getConfidentialBalance}
+                  />
+                </Stack>
+              }
               // secondary={`Decrypt balance of wcUSDC tokens. Balance increases when
               //   a user wraps USDC tokens or receives wcUSDC tokens from another user.
               //   Balance reduces when a user unwraps wcUSDC tokens or sends wcUSDC tokens
@@ -80,12 +105,17 @@ export default function Wrapper() {
             }}
           >
             <ListItemText
-              primary="Wrap USDC"
-              secondary={`Wrapping USDC tokens converts them into wcUSDC tokens.
-                 Wrapper moves approved tokens to the wrapper contract and tracks
-                  user balance internally using encrypted numbers. Wrapper contract itself is
-                a Confidential ERC20 token with wrap and unwrap methods linked to another
-                non confidential ERC20 token.`}
+              primary={
+                <Stack direction="row" alignItems="center">
+                  <Typography>Wrap USDC</Typography>
+                  <CodeViewer title="Wrap USDC" codeBlock={wrapCode} />
+                </Stack>
+              }
+              // secondary={`Wrapping USDC tokens converts them into wcUSDC tokens.
+              //    Wrapper moves approved tokens to the wrapper contract and tracks
+              //     user balance internally using encrypted numbers. Wrapper contract itself is
+              //   a Confidential ERC20 token with wrap and unwrap methods linked to another
+              //   non confidential ERC20 token.`}
             />
           </ListItem>
           <Divider sx={{ mt: 1, mb: 1 }} />
@@ -99,7 +129,18 @@ export default function Wrapper() {
               },
             }}
           >
-            <ListItemText primary="Unwrap wcUSDC" />
+            <ListItemText
+              primary={
+                <Stack direction="row" alignItems="center">
+                  <Typography>Unwrap wcUSDC</Typography>
+                  <CodeViewer
+                    title="Unwrap wcUSDC"
+                    codeBlock={unwrapCode}
+                    description="Converts the wrapped USDC back to standard ERC20 USDC"
+                  />
+                </Stack>
+              }
+            />
           </ListItem>
         </List>
       </CardContent>
